@@ -21,3 +21,5 @@ while True:
         led.value = True
 
     time.sleep(0.01)  # debounce delay
+    
+#If a switch is switched on, it will not turn on a led, but if it is switched off, a led is turned on.
