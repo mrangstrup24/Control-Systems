@@ -1,5 +1,6 @@
 import board
 from analogio import AnalogOut, AnalogIn
+import time
 
 led = AnalogOut(board.A0)
 light_sensor = AnalogIn(board.A1)
@@ -10,11 +11,12 @@ error = 0
 
 while True:
   error = 30000 - light_sensor.value
-  if light_sensor.value > 30000 - roomForError and light_sensor.value < 30000 + roomForError:
+  if abs(error)<light_sensor.value:
     pass
   else:
-    led.value += error*k
+    led.value -= error*k
     
   print(led.value)
+  time.sleep(0.1)
     
     
