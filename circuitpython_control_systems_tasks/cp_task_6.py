@@ -11,7 +11,7 @@ error = 0
 
 while True:
   error = 30000 - light_sensor.value
-  if abs(error)-roomForError<light_sensor.value:
+  if abs(error) < roomForError:
     pass
   else:
     led.value -= error*k
